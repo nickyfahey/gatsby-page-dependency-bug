@@ -1,3 +1,20 @@
 import React from "react"
+import { graphql } from "gatsby"
 
-export default () => <div>Hello world!</div>
+const IndexPage = ({ data }) => {
+  return (
+    <>
+      {data.helloAll.map(hello => (
+        <p>{hello}</p>
+      ))}
+    </>
+  )
+}
+
+export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    helloAll
+  }
+`
